@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Página home!</h1>
+    <form action="/api/users" class="formulario-contacto" method="post">
+        <input type="text" placeholder="nombre" name="name">
+        <input type="text" placeholder="edad" name="age">
+        <input type="email" placeholder="email" name="email">
+        <input type="submit" value="Añadir usuario">
+    </form>
+    <hr>
+    <% if(users.length==0) { %>
+        <p>No hay usuarios</p>
+        <% } %>
+            <% users.map(user=> { %>
+                <div class="contacto">
+                    <span>
+                        <%= user.name%>
+                    </span>
+                    <span>
+                        <%= user.age%>
+                    </span>
+                    <span>
+                        <%= user.email%>
+                    </span>
+                    <span><a href="/api/users/<%=user._id%>">X</a></span>
+                </div>
+
+                <% }) %>
+
+
+
+</body>
+
+</html>
