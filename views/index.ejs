@@ -15,7 +15,7 @@
         <input type="text" placeholder="edad" name="age">
         <input type="email" placeholder="email" name="email">
         <input type="text" placeholder="image" name="image">
-        <input type="submit" value="Añadir usuario">
+        <input type="submit" value="Añadir personaje">
     </form>
     <hr>
     <div id="characters">
@@ -26,16 +26,18 @@
             <% } %>
                 <% users.map(user=> { %>
                     <div class="card">
+                        <span class="wanted">Wanted</span>
                         <div class="img">
                             <img src="<%=user.image%>" alt="<%=user.name%> image">
                         </div>
-                        <span>
+                        <span>DEAD OR ALIVE</span>
+                        <span class="name">
                             <%= user.name%>
                         </span>
-                        <span>
+                        <span class="bounty">
                             <%= user.age%>
                         </span>
-                        <span>
+                        <span class="description">
                             <%= user.email%>
                         </span>
                         <span><a href="/api/users/<%=user._id%>">X</a></span>
