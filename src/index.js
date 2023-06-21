@@ -18,7 +18,7 @@ app.set('view engine', 'ejs')
 // APP USE (FORMS + JSON)
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
-app.use(express.static('../public'))
+app.use(express.static('public'))
 
 // middleware
 app.use('/api', userRoutes );

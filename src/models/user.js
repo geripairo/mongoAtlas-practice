@@ -15,6 +15,10 @@ const userSchema = new Schema({
     email: {
         type: String,
         required:true
+    },
+    image: {
+        type: String,
+        required: true
     }
 });
 
@@ -24,11 +28,12 @@ const User = mongoose.model('User', userSchema)
 
 // AÑADIR USUARIO
 const addUser = (req, res) => {
-    const {name, age, email} = req.body
+    const {name, age, email, image} = req.body
     const user = new User({
         name,
         age: Number(age),
-        email       
+        email,
+        image       
     })
     user.save()
     .then( re => {res.redirect('/')})

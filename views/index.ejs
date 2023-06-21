@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -13,30 +14,35 @@
         <input type="text" placeholder="nombre" name="name">
         <input type="text" placeholder="edad" name="age">
         <input type="email" placeholder="email" name="email">
+        <input type="text" placeholder="image" name="image">
         <input type="submit" value="Añadir usuario">
     </form>
     <hr>
-    <% if(users.length==0) { %>
-        <p>No hay usuarios</p>
-        <% } %>
-            <% users.map(user=> { %>
-                <div class="contacto">
-                    <span>
-                        <%= user.name%>
-                    </span>
-                    <span>
-                        <%= user.age%>
-                    </span>
-                    <span>
-                        <%= user.email%>
-                    </span>
-                    <span><a href="/api/users/<%=user._id%>">X</a></span>
-                </div>
-
-                <% }) %>
+    <div id="characters">
 
 
+        <% if(users.length==0) { %>
+            <p>No hay usuarios</p>
+            <% } %>
+                <% users.map(user=> { %>
+                    <div class="card">
+                        <div class="img">
+                            <img src="<%=user.image%>" alt="<%=user.name%> image">
+                        </div>
+                        <span>
+                            <%= user.name%>
+                        </span>
+                        <span>
+                            <%= user.age%>
+                        </span>
+                        <span>
+                            <%= user.email%>
+                        </span>
+                        <span><a href="/api/users/<%=user._id%>">X</a></span>
+                    </div>
 
+                    <% }) %>
+    </div>
 </body>
 
 </html>
